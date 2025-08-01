@@ -7,9 +7,13 @@
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bo1nx"]
 texture = ExtResource("1_jjgbg")
 texture_region_size = Vector2i(85, 85)
+use_texture_padding = false
 0:0/0 = 0
+0:0/0/custom_data_0 = "CHEF"
 1:0/0 = 0
+1:0/0/custom_data_0 = "CNV"
 2:0/0 = 0
+2:0/0/custom_data_0 = "CNV"
 3:0/0 = 0
 4:0/0 = 0
 5:0/0 = 0
@@ -24,8 +28,11 @@ texture_region_size = Vector2i(85, 85)
 14:0/0 = 0
 15:0/0 = 0
 0:1/0 = 0
+0:1/0/custom_data_0 = "CNV"
 1:1/0 = 0
+1:1/0/custom_data_0 = "CNV"
 2:1/0 = 0
+2:1/0/custom_data_0 = "CUST"
 3:1/0 = 0
 4:1/0 = 0
 5:1/0 = 0
@@ -40,6 +47,7 @@ texture_region_size = Vector2i(85, 85)
 14:1/0 = 0
 15:1/0 = 0
 0:2/0 = 0
+0:2/0/custom_data_0 = "FLOOR"
 1:2/0 = 0
 2:2/0 = 0
 3:2/0 = 0
@@ -267,6 +275,8 @@ texture_region_size = Vector2i(85, 85)
 [sub_resource type="TileSet" id="TileSet_8gbba"]
 tile_size = Vector2i(85, 85)
 uv_clipping = true
+custom_data_layer_0/name = "Type"
+custom_data_layer_0/type = 4
 sources/0 = SubResource("TileSetAtlasSource_bo1nx")
 
 [node name="Node2D" type="Node2D"]
