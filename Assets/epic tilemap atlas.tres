@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://dtrkrxd4d3buf"]
+
+[ext_resource type="Texture2D" uid="uid://dvn051wrtqi1a" path="res://Assets/epic tilemap.png" id="1_h6yfw"]
+
+[resource]
+atlas = ExtResource("1_h6yfw")
