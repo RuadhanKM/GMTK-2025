@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://d0gbcpntokgwy"]
+[gd_scene load_steps=7 format=4 uid="uid://d0gbcpntokgwy"]
 
 [ext_resource type="Texture2D" uid="uid://dtrkrxd4d3buf" path="res://Assets/epic tilemap atlas.tres" id="1_jjgbg"]
-[ext_resource type="Script" uid="uid://b6n677uvbgnfn" path="res://Scripts/draw_conveyor.gd" id="2_bo1nx"]
+[ext_resource type="Script" uid="uid://cbk8h2xqyr5ai" path="res://Scenes/run_conveyor.gd" id="2_jjvhh"]
 [ext_resource type="Texture2D" uid="uid://drgocxhjicud0" path="res://Assets/outline.png" id="3_8gbba"]
+[ext_resource type="Script" uid="uid://b13rr801jps2y" path="res://Scenes/ui_manager.gd" id="4_jjvhh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bo1nx"]
 texture = ExtResource("1_jjgbg")
@@ -12,8 +13,10 @@ use_texture_padding = false
 0:0/0/custom_data_0 = "CHEF"
 1:0/0 = 0
 1:0/0/custom_data_0 = "CNV"
+1:0/0/custom_data_1 = true
 2:0/0 = 0
 2:0/0/custom_data_0 = "CNV"
+2:0/0/custom_data_1 = true
 3:0/0 = 0
 4:0/0 = 0
 5:0/0 = 0
@@ -29,8 +32,10 @@ use_texture_padding = false
 15:0/0 = 0
 0:1/0 = 0
 0:1/0/custom_data_0 = "CNV"
+0:1/0/custom_data_1 = true
 1:1/0 = 0
 1:1/0/custom_data_0 = "CNV"
+1:1/0/custom_data_1 = true
 2:1/0 = 0
 2:1/0/custom_data_0 = "CUST"
 3:1/0 = 0
@@ -277,17 +282,44 @@ tile_size = Vector2i(85, 85)
 uv_clipping = true
 custom_data_layer_0/name = "Type"
 custom_data_layer_0/type = 4
+custom_data_layer_1/name = "block conveyor"
+custom_data_layer_1/type = 1
 sources/0 = SubResource("TileSetAtlasSource_bo1nx")
 
-[node name="Node2D" type="Node2D"]
+[node name="main" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 z_index = -10
 position = Vector2(501, 370)
 tile_map_data = PackedByteArray("AAD+////AAAAAAAAAAD+//7/AAAAAAIAAAD+//3/AAAAAAIAAAD///3/AAAAAAIAAAAAAP3/AAAAAAIAAAABAP3/AAAAAAIAAAACAP3/AAAAAAIAAAADAP3/AAAAAAIAAAAEAP3/AAAAAAIAAAAEAP7/AAAAAAIAAAAEAP//AAAAAAIAAAAEAAAAAAAAAAIAAAAEAAEAAAAAAAIAAAAEAAIAAAAAAAIAAAADAAIAAAAAAAIAAAACAAIAAAAAAAIAAAACAAEAAAAAAAIAAAABAAEAAAAAAAIAAAAAAAEAAAAAAAIAAAD//wEAAAAAAAIAAAD//wIAAAAAAAIAAAD+/wIAAAAAAAIAAAD+/wEAAAAAAAIAAAD+/wAAAAAAAAIAAAD//wAAAAAAAAIAAAAAAAAAAAAAAAIAAAABAAAAAAAAAAIAAAACAAAAAAAAAAIAAAADAAAAAAAAAAIAAAADAAEAAAAAAAIAAAABAAIAAAAAAAIAAAAAAAIAAAAAAAIAAAD/////AAAAAAIAAAD///7/AAAAAAIAAAAAAP7/AAAAAAIAAAABAP7/AAAAAAIAAAACAP7/AAAAAAIAAAADAP7/AAAAAAIAAAADAP//AAACAAEAAAACAP//AAAAAAIAAAABAP//AAAAAAIAAAAAAP//AAAAAAIAAAD9/wIAAAAAAAIAAAD9/wEAAAAAAAIAAAD9/wAAAAAAAAIAAAD9////AAAAAAIAAAD9//7/AAAAAAIAAAD9//3/AAAAAAIAAAD9//z/AAAAAAIAAAD+//z/AAAAAAIAAAD///z/AAAAAAIAAAAAAPz/AAAAAAIAAAABAPz/AAAAAAIAAAACAPz/AAAAAAIAAAADAPz/AAAAAAIAAAAEAPz/AAAAAAIAAAAFAPz/AAAAAAIAAAAFAP3/AAAAAAIAAAAFAP7/AAAAAAIAAAAFAP//AAAAAAIAAAAFAAAAAAAAAAIAAAAFAAEAAAAAAAIAAAAFAAIAAAAAAAIAAAD8//z/AAAAAAIAAAD8//3/AAAAAAIAAAD8//7/AAAAAAIAAAD8////AAAAAAIAAAD8/wAAAAAAAAIAAAD8/wEAAAAAAAIAAAD8/wIAAAAAAAIAAAA=")
 tile_set = SubResource("TileSet_8gbba")
-script = ExtResource("2_bo1nx")
+script = ExtResource("2_jjvhh")
 
 [node name="TileMapHoverHighlight" type="Sprite2D" parent="TileMapLayer"]
 scale = Vector2(0.166, 0.166)
 texture = ExtResource("3_8gbba")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_jjvhh")
+
+[node name="OpenButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Open"
+
+[node name="MenuLabel" type="Label" parent="Control"]
+layout_mode = 0
+offset_top = 50.0
+offset_right = 105.0
+offset_bottom = 125.0
+
+[connection signal="pressed" from="Control/OpenButton" to="Control" method="_on_open_button_pressed"]

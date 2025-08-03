@@ -14,3 +14,7 @@ config/name="GMTK 2025"
 run/main_scene="uid://d0gbcpntokgwy"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GameManager="*res://Scripts/game_manager.gd"
