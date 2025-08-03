@@ -7,16 +7,16 @@ var current_path = []
 
 # Hardcoded for current tilemap, change later
 const movement_tileset_map = {
-	"(0, -1)" : Vector2i(1, 0),
-	"(0, 1)" : Vector2i(2, 0),
+	"(0, -1)" : Vector2i(2, 0),
+	"(0, 1)" : Vector2i(1, 0),
 	"(-1, 0)" : Vector2i(1, 1),
-	"(1, 0)" : Vector2i(0, 1),
+	"(1, 0)" : Vector2i(2, 1),
 }
 
 func cancel_drawing():
 	drawing = false
 	for tile in current_path:
-		set_cell(tile, 0, Vector2i(0, 2))
+		set_cell(tile, 0, Vector2i(0, 1))
 	current_path = []
 
 func confirm_drawing():
