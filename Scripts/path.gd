@@ -35,8 +35,8 @@ func add_point(position: Vector2) -> void:
 			all_point_atp_idc.append(interp_point)
 			this_turn_old_point.append(last_point)
 			this_turn_old_point.append(position)
-		for i in this_turn_old_point:
-			$GroundLayer.set_cell(i,-1, Vector2i(0,1))
+		#for i in this_turn_old_point:
+			#$GroundLayer.set_cell(i,-1, Vector2i(0,1))
 			
 		if tile_position == line_points[0]:
 			locked == true

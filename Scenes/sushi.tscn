@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://lhxo0vg00r0g"]
+
+[ext_resource type="Texture2D" uid="uid://do767t48fau1b" path="res://icon.svg" id="1_ko5od"]
+[ext_resource type="Script" uid="uid://cxu8nhj8qpe3b" path="res://Scenes/sushi.gd" id="1_ueybh"]
+
+[node name="Sushi" type="PathFollow2D"]
+script = ExtResource("1_ueybh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_ko5od")

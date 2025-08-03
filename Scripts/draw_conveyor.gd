@@ -21,7 +21,16 @@ func cancel_drawing():
 
 func confirm_drawing():
 	drawing = false
-	GameManager.current_paths.append(current_path)
+	
+	var new_curve = Curve2D.new()
+	for i in current_path:
+		new_curve.add_point(to_global(map_to_local(Vector2(i))))
+	new_curve.add_point(to_global(map_to_local(Vector2(current_path[0]))))
+	var new_path = Path2D.new()
+	new_path.curve = new_curve
+	$"/root/main".add_child(new_path)
+	
+	GameManager.current_paths.append(new_path)
 	current_path = []
 
 func _process(delta: float) -> void:
@@ -61,4 +70,4 @@ func _input(event: InputEvent) -> void:
 			cancel_drawing()
 
 func _ready() -> void:
-	GameManager.main_tile_map = self
+	GameManager.grnd_layer = self

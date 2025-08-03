@@ -1,11 +1,11 @@
-[gd_scene load_steps=12 format=4 uid="uid://d0gbcpntokgwy"]
+[gd_scene load_steps=13 format=4 uid="uid://d0gbcpntokgwy"]
 
-[ext_resource type="Script" uid="uid://nhlvbba307v" path="res://Scripts/path.gd" id="1_kry3j"]
 [ext_resource type="Texture2D" uid="uid://bo0qo7dodxcak" path="res://Assets/shark.png" id="2_21xkr"]
 [ext_resource type="Script" uid="uid://b6n677uvbgnfn" path="res://Scripts/draw_conveyor.gd" id="2_bo1nx"]
 [ext_resource type="Texture2D" uid="uid://cjwognelxpoym" path="res://Assets/conveyor_ground_atlas.tres" id="2_kry3j"]
+[ext_resource type="Texture2D" uid="uid://dvn051wrtqi1a" path="res://Assets/epic tilemap.png" id="3_6bp64"]
 [ext_resource type="Texture2D" uid="uid://drgocxhjicud0" path="res://Assets/outline.png" id="3_8gbba"]
-[ext_resource type="Script" path="res://Scripts/ui_manager.gd" id="4_jjvhh"]
+[ext_resource type="Script" uid="uid://b13rr801jps2y" path="res://Scripts/ui_manager.gd" id="4_jjvhh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6bp64"]
 texture = ExtResource("2_21xkr")
@@ -822,9 +822,15 @@ texture_region_size = Vector2i(256, 256)
 1:1/0 = 0
 0:1/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_344ge"]
+texture = ExtResource("3_6bp64")
+texture_region_size = Vector2i(85, 85)
+0:0/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_344ge"]
 tile_size = Vector2i(256, 256)
 sources/0 = SubResource("TileSetAtlasSource_6bp64")
+sources/1 = SubResource("TileSetAtlasSource_344ge")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_21xkr"]
 texture = ExtResource("2_kry3j")
@@ -849,11 +855,10 @@ sources/0 = SubResource("TileSetAtlasSource_21xkr")
 [sub_resource type="Curve2D" id="Curve2D_21xkr"]
 
 [node name="main" type="Node2D"]
-script = ExtResource("1_kry3j")
 
 [node name="CustomerLayer" type="TileMapLayer" parent="."]
 scale = Vector2(0.25, 0.25)
-tile_map_data = PackedByteArray("AAAFAAQAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAANAAQAAAAAAAAAAAAFAAQAAQAAAAAAAAA=")
 tile_set = SubResource("TileSet_344ge")
 
 [node name="GroundLayer" type="TileMapLayer" parent="."]
