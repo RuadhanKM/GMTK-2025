@@ -7,7 +7,7 @@ var locked = false
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and not locked:
-			var tilemap_pos = get_viewport().get_mouse_position()
+			var tilemap_pos = $GroundLayer.to_local(get_viewport().get_mouse_position())
 			var rea_tilemap = $GroundLayer.local_to_map(tilemap_pos)
 			if check_point_is_okay(rea_tilemap):
 				add_point(tilemap_pos)
@@ -44,7 +44,7 @@ func add_point(position: Vector2) -> void:
 func generate_path_cure():
 	var newcurve : Curve2D = Curve2D.new()
 	for i in line_points:
-		newcurve.add_point($GroundLayer.map_to_local(i))
+		newcurve.add_point($GroundLayer.to_global($GroundLayer.map_to_local(i)))
 	$Path2D.curve = newcurve
 
 func debug_line():

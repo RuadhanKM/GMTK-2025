@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://b6n677uvbgnfn" path="res://Scripts/draw_conveyor.gd" id="2_bo1nx"]
 [ext_resource type="Texture2D" uid="uid://cjwognelxpoym" path="res://Assets/conveyor_ground_atlas.tres" id="2_kry3j"]
 [ext_resource type="Texture2D" uid="uid://drgocxhjicud0" path="res://Assets/outline.png" id="3_8gbba"]
-[ext_resource type="Script" uid="uid://b13rr801jps2y" path="res://Scripts/ui_manager.gd" id="4_jjvhh"]
+[ext_resource type="Script" path="res://Scripts/ui_manager.gd" id="4_jjvhh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6bp64"]
 texture = ExtResource("2_21xkr")
